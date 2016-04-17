@@ -1,5 +1,6 @@
 #include <iostream>
 #include <DxLib.h>
+#include "ImageLoader.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -11,11 +12,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	int i = 60;
 	SetDrawScreen(DX_SCREEN_BACK);
+	dxshoot::ImageLoader loader;
+	int tex = loader.load("chara_test.png");
+	int tex2 = loader.load("bullet_test.png");
 	while (ProcessMessage() != -1)
 	{
 		ClearDrawScreen();
-		DrawPixel(i, 240, GetColor(255, 255, 0));
-		DrawPixel(60, 360, GetColor(255, 255, 0));
+		DrawGraph(100, 200, tex, TRUE);
+		DrawGraph(i, 240, tex2, TRUE);
 		i++;
 		ScreenFlip();
 	}
