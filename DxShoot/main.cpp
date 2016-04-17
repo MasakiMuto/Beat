@@ -1,28 +1,41 @@
-#include <iostream>
-#include <DxLib.h>
+#include "main.h"
 #include "ImageLoader.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	ChangeWindowMode(TRUE);
-
-	if (DxLib_Init() == -1)
+	DxLib::ChangeWindowMode(TRUE);
+	DxLib::SetWindowTextA("dxshoot");
+	DxLib::SetBackgroundColor(100, 149, 237);//cornflowerblue
+	DxLib::SetUsePremulAlphaConvertLoad(TRUE);
+	if (DxLib::DxLib_Init() == -1)
 	{
 		return -1;
 	}
-	int i = 60;
-	SetDrawScreen(DX_SCREEN_BACK);
-	dxshoot::ImageLoader loader;
-	int tex = loader.load("chara_test.png");
-	int tex2 = loader.load("bullet_test.png");
-	while (ProcessMessage() != -1)
+	DxLib:: SetDrawScreen(DX_SCREEN_BACK);
+	dxshoot::init();
+	while (DxLib::ProcessMessage() != -1)
 	{
-		ClearDrawScreen();
-		DrawGraph(100, 200, tex, TRUE);
-		DrawGraph(i, 240, tex2, TRUE);
-		i++;
-		ScreenFlip();
+		dxshoot::update();
+		DxLib::ClearDrawScreen();
+		dxshoot::draw();
+		DxLib::ScreenFlip();
 	}
-	DxLib_End();
+	DxLib::DxLib_End();
 	return 0;
+}
+
+namespace dxshoot {
+	void init() 
+	{
+
+	}
+
+	void update()
+	{
+	}
+
+	void draw()
+	{
+	}
+
 }

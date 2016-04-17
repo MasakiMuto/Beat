@@ -1,5 +1,5 @@
+#include "main.h"
 #include "ImageLoader.h"
-#include <DxLib.h>
 
 namespace dxshoot{
 
@@ -12,7 +12,7 @@ ImageLoader::ImageLoader()
 ImageLoader::~ImageLoader()
 {
 	for (auto i : *items) {
-		DeleteGraph(i.second);
+		DxLib::DeleteGraph(i.second);
 	}
 	items.reset();
 }
@@ -24,7 +24,7 @@ int ImageLoader::load(const char* fileName)
 	s.append(fileName);
 	auto item = items->find(s);
 	if (item == items->end()) {
-		int i = LoadGraph(s.c_str());
+		int i = DxLib::LoadGraph(s.c_str());
 		items->emplace(s, i);
 		return i;
 	}
