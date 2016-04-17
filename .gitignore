@@ -1,0 +1,7 @@
+Debug/
+*.db
+*.opendb
+DxShoot/Debug/
+DxShoot/Log.txt
+*.user
+*.filters
