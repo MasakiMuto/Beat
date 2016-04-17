@@ -135,7 +135,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ImageLoader.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlayEngine.cpp" />
+    <ClCompile Include="PlayerCharacter.cpp" />
+    <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Contents\Sprites\bullet_test.png">
@@ -147,7 +151,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="PlayEngine.h" />
+    <ClInclude Include="PlayerCharacter.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

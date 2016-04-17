@@ -5,6 +5,8 @@
 #include <DxLib.h>
 
 namespace dxshoot {
+
+
 	void init();
 	void update();
 	void draw();

@@ -14,7 +14,6 @@ ImageLoader::~ImageLoader()
 	for (auto i : *items) {
 		DxLib::DeleteGraph(i.second);
 	}
-	items.reset();
 }
 
 

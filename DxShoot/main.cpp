@@ -1,5 +1,7 @@
 #include "main.h"
 #include "ImageLoader.h"
+#include "PlayEngine.h"
+#include "InputManager.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -11,7 +13,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		return -1;
 	}
-	DxLib:: SetDrawScreen(DX_SCREEN_BACK);
+	DxLib::SetDrawScreen(DX_SCREEN_BACK);
 	dxshoot::init();
 	while (DxLib::ProcessMessage() != -1)
 	{
@@ -25,17 +27,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 }
 
 namespace dxshoot {
-	void init() 
-	{
 
-	}
+void init()
+{
+	PlayEngine::getInstance().init();
 
-	void update()
-	{
-	}
+}
 
-	void draw()
-	{
-	}
+void update()
+{
+	InputManager::getInstance().update();
+	PlayEngine::getInstance().update();
+
+}
+
+void draw()
+{
+	PlayEngine::getInstance().draw();
+}
 
 }
