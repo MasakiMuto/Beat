@@ -28,7 +28,7 @@ private:
 
 public:
 	void init();
-	void addShot(Shot && s);
+	void addShot(std::unique_ptr<Shot> s);
 };
 
 

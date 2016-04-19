@@ -21,4 +21,9 @@ void Shot::update()
 	position += velocity;
 }
 
+bool Shot::canDelete()
+{
+	return position.x > 480;
+}
+
 }

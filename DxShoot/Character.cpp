@@ -18,7 +18,7 @@ Character::Character(const char * imageName)
 	image = PlayEngine::getInstance().getImages().load(imageName);
 	int x, y;
 	DxLib::GetGraphSize(image, &x, &y);
-	offset = Vector2(x, y);
+	offset = Vector2(x * 0.5f, y * 0.5f);
 }
 
 }

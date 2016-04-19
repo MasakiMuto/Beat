@@ -29,6 +29,8 @@ void PlayEngine::update()
 	for (auto& s : *shots) {
 		s->update();
 	}
+	
+	shots->remove_if([](auto& s) -> bool { return s->canDelete(); });
 }
 
 
@@ -50,12 +52,10 @@ void PlayEngine::init()
 	imageLoader = std::make_unique<ImageLoader>();
 	player = std::make_unique<PlayerCharacter>();
 	shots = std::make_unique<ShotList>();
-	shots->insert(shots->begin(), std::make_unique<Shot>(Vector2(100, 100), 3.0f, 0.0f));
-	shots->insert(shots->begin(), std::make_unique<Shot>(Vector2(200.0f, 200.0f), 1.0f, -0.5f));
 }
 
-void PlayEngine::addShot(Shot&& s) {
-	shots->insert(shots->begin(), std::make_unique<Shot>(s));
+void PlayEngine::addShot(std::unique_ptr<Shot> s) {
+	shots->insert(shots->begin(), std::move(s));
 }
 
 }
