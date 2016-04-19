@@ -6,26 +6,22 @@
 namespace dxshoot{
 
 PlayerCharacter::PlayerCharacter()
+	: Character("chara_test.png")
 {
-	pos = Vector2(240.0f, 300.0f);
-	image = PlayEngine::getInstance().getImages().load("chara_test.png");
+	position = Vector2(240.0f, 300.0f);
 }
 
 
 PlayerCharacter::~PlayerCharacter()
 {
+	Character::~Character();
 }
 
 
 void PlayerCharacter::update()
 {
-	pos = pos + InputManager::getInstance().getDirection();
+	position = position + InputManager::getInstance().getDirection() * Speed;
 }
 
-
-void PlayerCharacter::draw()
-{
-	DxLib::DrawGraphF(pos.x, pos.y, image, TRUE);
-}
 
 }

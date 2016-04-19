@@ -1,19 +1,17 @@
 #pragma once
 #include "Vector2.h"
+#include "Character.h"
 
 namespace dxshoot{
 
-class PlayerCharacter
+class PlayerCharacter : public Character
 {
 public:
 	PlayerCharacter();
 	~PlayerCharacter();
-	void update();
-	void draw();
-
+	virtual void update() override;
 private:
-	Vector2 pos;
-	int image;
+	const float Speed = 5.0f;
 };
 
 
