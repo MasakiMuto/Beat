@@ -7,7 +7,7 @@ class Shot :
 	public Character
 {
 public:
-	Shot();
+	Shot(Vector2 pos, float s, float a);
 	~Shot();
 	virtual void update() override;
 protected:

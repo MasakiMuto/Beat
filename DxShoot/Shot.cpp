@@ -1,13 +1,14 @@
 #include "Shot.h"
+#include <cmath>
 
 namespace dxshoot {
 
 
-Shot::Shot()
+Shot::Shot(Vector2 pos, float s, float a)
 	: Character("bullet_test.png")
 {
-	position = Vector2(100.0f, 100.0f);
-	velocity = Vector2(2.0f, 0.0f);
+	position = pos;
+	velocity = Vector2::polar(s, a);
 }
 
 
@@ -17,7 +18,7 @@ Shot::~Shot()
 
 void dxshoot::Shot::update()
 {
-	position = position + velocity;
+	position += velocity;
 }
 
 }

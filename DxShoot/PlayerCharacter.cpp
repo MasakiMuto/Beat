@@ -20,7 +20,7 @@ PlayerCharacter::~PlayerCharacter()
 
 void PlayerCharacter::update()
 {
-	position = position + InputManager::getInstance().getDirection() * Speed;
+	position += InputManager::getInstance().getDirection() * Speed;
 }
 
 

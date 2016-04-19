@@ -38,7 +38,6 @@ void PlayEngine::draw()
 	for (auto& s : *shots) {
 		s->draw();
 	}
-	//DxLib::DrawGraph(100, 100, getImages().load("chara_test.png"), TRUE);
 }
 
 ImageLoader & PlayEngine::getImages()
@@ -51,7 +50,8 @@ void PlayEngine::init()
 	imageLoader = std::make_unique<ImageLoader>();
 	player = std::make_unique<PlayerCharacter>();
 	shots = std::make_unique<ShotList>();
-	shots->insert(shots->begin(), std::make_unique<Shot>());
+	shots->insert(shots->begin(), std::make_unique<Shot>(Vector2(100, 100), 3.0f, 0.0f));
+	shots->insert(shots->begin(), std::make_unique<Shot>(Vector2(200.0f, 200.0f), 1.0f, -0.5f));
 }
 
 }

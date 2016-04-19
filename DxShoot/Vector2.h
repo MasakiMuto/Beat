@@ -25,6 +25,12 @@ public:
 		}
 		return *this * (1.0f / l);
 	}
+	inline void operator +=(const Vector2& other) { x += other.x; y += other.y; }
+	inline void operator -=(const Vector2& other) { x -= other.x; y -= other.y; }
+	inline void operator *=(float a) { x *= a; y *= a; }
+	inline float angle() { return std::atan2(y, x); }
+
+	static inline Vector2 polar(float length, float angle) { return Vector2(std::cos(angle) * length, std::sin(angle) * length); }
 };
 
 }
