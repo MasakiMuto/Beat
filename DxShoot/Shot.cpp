@@ -16,7 +16,7 @@ Shot::~Shot()
 {
 }
 
-void dxshoot::Shot::update()
+void Shot::update()
 {
 	position += velocity;
 }

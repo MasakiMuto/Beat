@@ -28,6 +28,7 @@ private:
 
 public:
 	void init();
+	void addShot(Shot && s);
 };
 
 

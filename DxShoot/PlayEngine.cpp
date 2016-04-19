@@ -54,4 +54,8 @@ void PlayEngine::init()
 	shots->insert(shots->begin(), std::make_unique<Shot>(Vector2(200.0f, 200.0f), 1.0f, -0.5f));
 }
 
+void PlayEngine::addShot(Shot&& s) {
+	shots->insert(shots->begin(), std::make_unique<Shot>(s));
+}
+
 }
