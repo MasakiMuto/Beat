@@ -13,6 +13,11 @@ void Character::draw()
 	DxLib::DrawGraphF(position.x - offset.x, position.y - offset.y, image, TRUE);
 }
 
+bool Character::canDelete()
+{
+	return false;
+}
+
 Character::Character(const char * imageName)
 {
 	image = PlayEngine::getInstance().getImages().load(imageName);

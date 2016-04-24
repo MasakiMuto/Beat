@@ -26,20 +26,14 @@ PlayEngine::~PlayEngine()
 void PlayEngine::update()
 {
 	player->update();
-	for (auto& s : *shots) {
-		s->update();
-	}
-	
-	shots->remove_if([](auto& s) -> bool { return s->canDelete(); });
+	cshots->update();
 }
 
 
 void PlayEngine::draw()
 {
 	player->draw();
-	for (auto& s : *shots) {
-		s->draw();
-	}
+	cshots->draw();
 }
 
 ImageLoader & PlayEngine::getImages()
@@ -52,10 +46,11 @@ void PlayEngine::init()
 	imageLoader = std::make_unique<ImageLoader>();
 	player = std::make_unique<PlayerCharacter>();
 	shots = std::make_unique<ShotList>();
+	cshots = std::make_unique<CharacterManager>();
 }
 
 void PlayEngine::addShot(std::unique_ptr<Shot> s) {
-	shots->insert(shots->begin(), std::move(s));
+	cshots->add(std::move(s));
 }
 
 }

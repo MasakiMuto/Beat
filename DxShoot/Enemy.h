@@ -3,17 +3,19 @@
 
 namespace dxshoot {
 
-class Shot :
+
+
+class Enemy :
 	public Character
 {
 public:
-	Shot(Vector2 pos, float s, float a);
-	Shot(Shot& s) = delete;
-	~Shot();
+	Enemy(const char* imageName);
+	~Enemy();
+
 	virtual void update() override;
 	virtual bool canDelete() override;
 protected:
-	Vector2 velocity;
+	int count;
 };
 
 }

@@ -14,6 +14,7 @@ Shot::Shot(Vector2 pos, float s, float a)
 
 Shot::~Shot()
 {
+	Character::~Character();
 }
 
 void Shot::update()

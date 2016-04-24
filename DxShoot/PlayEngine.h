@@ -4,6 +4,7 @@
 #include "ImageLoader.h"
 #include "PlayerCharacter.h"
 #include "Shot.h"
+#include "CharacterManager.h"
 
 namespace dxshoot
 {
@@ -25,6 +26,8 @@ private:
 	std::unique_ptr<ImageLoader> imageLoader;
 	std::unique_ptr<PlayerCharacter> player;
 	std::unique_ptr<ShotList> shots;
+
+	std::unique_ptr<CharacterManager> cshots;
 
 public:
 	void init();
