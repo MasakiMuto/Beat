@@ -9,6 +9,7 @@ PlayerCharacter::PlayerCharacter()
 	: Character("chara_test.png")
 {
 	position = Vector2(240.0f, 300.0f);
+	collisionRect = Vector2(8.0f, 16.0f);
 }
 
 

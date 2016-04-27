@@ -1,6 +1,7 @@
 #include "Character.h"
 #include "PlayEngine.h"
 #include "main.h"
+#include "Rectangle.h"
 
 namespace dxshoot {
 
@@ -15,7 +16,13 @@ void Character::draw()
 
 bool Character::canDelete()
 {
+
 	return false;
+}
+
+bool Character::isCollision(const Character & other)
+{
+	return Rectangle(position, collisionRect).isCollision(Rectangle(other.position, other.collisionRect));
 }
 
 Character::Character(const char * imageName)

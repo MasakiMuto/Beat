@@ -147,6 +147,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayEngine.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shot.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
@@ -167,6 +168,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="PlayEngine.h" />
     <ClInclude Include="PlayerCharacter.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shot.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>

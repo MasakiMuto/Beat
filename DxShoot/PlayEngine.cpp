@@ -27,11 +27,13 @@ void PlayEngine::update()
 {
 	player->update();
 	cshots->update();
+	enemys->update();
 }
 
 
 void PlayEngine::draw()
 {
+	enemys->draw();
 	player->draw();
 	cshots->draw();
 }
@@ -45,12 +47,20 @@ void PlayEngine::init()
 {
 	imageLoader = std::make_unique<ImageLoader>();
 	player = std::make_unique<PlayerCharacter>();
-	shots = std::make_unique<ShotList>();
 	cshots = std::make_unique<CharacterManager>();
+	enemys = std::make_unique<CharacterManager>();
+
+	addEnemy(std::make_unique<Enemy>("chara_test.png", Vector2(400.0f, 300.0f)));
 }
 
 void PlayEngine::addShot(std::unique_ptr<Shot> s) {
 	cshots->add(std::move(s));
 }
+
+void PlayEngine::addEnemy(std::unique_ptr<Enemy> e)
+{
+	enemys->add(std::move(e));
+}
+
 
 }
