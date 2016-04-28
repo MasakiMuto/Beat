@@ -22,7 +22,6 @@ PlayerCharacter::~PlayerCharacter()
 void PlayerCharacter::update()
 {
 	position += InputManager::getInstance().getDirection() * Speed;
-
 	if (InputManager::getInstance().getButton(Button::A).push()) {
 		PlayEngine::getInstance().addShot(std::make_unique<Shot>(position, 3.0f, 0.0f));
 	}

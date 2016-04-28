@@ -43,6 +43,11 @@ ImageLoader & PlayEngine::getImages()
 	return *imageLoader;
 }
 
+Rectangle PlayEngine::getPlayArea()
+{
+	return Rectangle::fromPoint(0.0f, 0.0f, 640.0f, 480.0f);
+}
+
 void PlayEngine::init()
 {
 	imageLoader = std::make_unique<ImageLoader>();

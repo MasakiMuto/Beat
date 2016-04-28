@@ -16,9 +16,9 @@ class InputManager
 	class ButtonState {
 		friend InputManager;
 	public:
-		int repeat();
-		bool push();
-		bool release();
+		int repeat() const;
+		bool push() const;
+		bool release() const;
 		void step();
 	private:
 		int count;
@@ -30,7 +30,7 @@ public:
 	InputManager();
 	~InputManager();
 	void update();
-	Vector2 getDirection();
+	Vector2 getDirection() const;
 	ButtonState& getButton(Button bt);
 private:
 	static std::unique_ptr<InputManager> instance;

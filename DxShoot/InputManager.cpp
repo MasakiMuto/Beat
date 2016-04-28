@@ -43,7 +43,7 @@ void InputManager::update()
 }
 
 
-Vector2 InputManager::getDirection()
+Vector2 InputManager::getDirection() const
 {
 	return direction;
 }
@@ -53,17 +53,17 @@ InputManager::ButtonState& InputManager::getButton(Button bt)
 	return buttons.at((int)bt);
 }
 
-int InputManager::ButtonState::repeat()
+int InputManager::ButtonState::repeat() const
 {
 	return count;
 }
 
-bool InputManager::ButtonState::push()
+bool InputManager::ButtonState::push() const
 {
 	return count == 1;
 }
 
-bool InputManager::ButtonState::release()
+bool InputManager::ButtonState::release() const
 {
 	return count == -1;
 }

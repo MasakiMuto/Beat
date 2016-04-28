@@ -1,9 +1,21 @@
 #include "CharacterManager.h"
+#include <list>
+#include <map>
+
 
 namespace dxshoot {
 
+struct CharacterManager::Impl {
+	using ItemList = std::list<std::unique_ptr<Character>>;
+	using ItemSet = std::map<int, std::unique_ptr<ItemList>>;
+	ItemSet items;
+
+	ItemList& getList(const Character& c);
+
+};
 
 CharacterManager::CharacterManager()
+	: impl(new CharacterManager::Impl)
 {
 }
 
@@ -14,13 +26,13 @@ CharacterManager::~CharacterManager()
 
 void CharacterManager::add(std::unique_ptr<Character> c)
 {
-	auto& list = getList(*c);
+	auto& list = impl->getList(*c);
 	list.insert(list.begin(), std::move(c));
 }
 
 void CharacterManager::update()
 {
-	for (auto& list : items) {
+	for (auto& list : impl->items) {
 		for (auto& c : *(list.second)) {
 			c->update();
 		}
@@ -30,14 +42,15 @@ void CharacterManager::update()
 
 void CharacterManager::draw()
 {
-	for (auto& list : items) {
+	for (auto& list : impl->items) {
 		for (auto& c : *(list.second)) {
 			c->draw();
 		}
 	}
 }
 
-CharacterManager::ItemList & CharacterManager::getList(const Character & c)
+
+CharacterManager::Impl::ItemList & CharacterManager::Impl::getList(const Character & c)
 {
 	auto l = items.find(c.getImage());
 	if (l == items.end()) {

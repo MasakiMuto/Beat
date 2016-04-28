@@ -2,8 +2,6 @@
 
 #include "Character.h"
 #include <memory>
-#include <list>
-#include <map>
 
 namespace dxshoot {
 
@@ -17,11 +15,9 @@ public:
 	void update();
 	void draw();
 private:
-	using ItemList = std::list<std::unique_ptr<Character>>;
-	using ItemSet = std::map<int, std::unique_ptr<ItemList>>;
-	ItemSet items;
+	struct Impl;
+	std::unique_ptr<Impl> impl;
 
-	ItemList& getList(const Character& c);
 };
 
 }

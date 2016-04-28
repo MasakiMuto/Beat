@@ -1,5 +1,6 @@
 #include "Shot.h"
 #include <cmath>
+#include "PlayEngine.h"
 
 namespace dxshoot {
 
@@ -9,6 +10,7 @@ Shot::Shot(Vector2 pos, float s, float a)
 {
 	position = pos;
 	velocity = Vector2::polar(s, a);
+	collisionRect = Vector2(16.0f, 16.0f);
 }
 
 
@@ -24,7 +26,7 @@ void Shot::update()
 
 bool Shot::canDelete()
 {
-	return position.x > 480;
+	return !PlayEngine::getInstance().getPlayArea().isCollision(Rectangle(position, collisionRect));
 }
 
 }

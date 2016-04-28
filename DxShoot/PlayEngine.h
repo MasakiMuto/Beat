@@ -6,6 +6,7 @@
 #include "Shot.h"
 #include "CharacterManager.h"
 #include "Enemy.h"
+#include "Rectangle.h"
 
 namespace dxshoot
 {
@@ -22,6 +23,7 @@ public:
 	ImageLoader& getImages();
 	inline CharacterManager& getShots() { return *cshots; }
 	inline PlayerCharacter& getPlayer() { return *player; }
+	Rectangle getPlayArea();
 private:
 	static std::unique_ptr<PlayEngine> instance;
 
