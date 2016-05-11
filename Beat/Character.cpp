@@ -11,7 +11,9 @@ Character::~Character()
 
 void Character::draw()
 {
-	DxLib::DrawGraphF(position.x - offset.x, position.y - offset.y, image, TRUE);
+	auto rect = dxshoot::Rectangle(position, collisionRect);
+	DxLib::DrawBox(static_cast<int>(rect.getMin().x), static_cast<int>(rect.getMin().y),
+		static_cast<int>(rect.getMax().x), static_cast<int>(rect.getMax().y), color, TRUE);
 }
 
 bool Character::canDelete()
@@ -25,12 +27,8 @@ bool Character::isCollision(const Character & other)
 	return Rectangle(position, collisionRect).isCollision(Rectangle(other.position, other.collisionRect));
 }
 
-Character::Character(const char * imageName)
+Character::Character()
 {
-	image = PlayEngine::getInstance().getImages().load(imageName);
-	int x, y;
-	DxLib::GetGraphSize(image, &x, &y);
-	offset = Vector2(x * 0.5f, y * 0.5f);
 }
 
 }

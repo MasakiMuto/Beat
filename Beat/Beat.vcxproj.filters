@@ -28,12 +28,10 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Shot.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Level.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterManager.h">
@@ -63,12 +61,10 @@
     <ClInclude Include="Rectangle.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Shot.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Level.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Contents\Sprites\bullet_test.png">

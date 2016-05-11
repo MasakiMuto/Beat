@@ -1,5 +1,6 @@
 #include "main.h"
 #include "PlayEngine.h"
+#include "InputManager.h"
 
 namespace dxshoot {
 std::unique_ptr<PlayEngine> PlayEngine::instance;
@@ -11,6 +12,19 @@ PlayEngine & PlayEngine::getInstance()
 		instance = std::make_unique<PlayEngine>();
 	}
 	return *instance;
+}
+
+void PlayEngine::destroyInstance()
+{
+	if (instance) {
+		instance.reset();
+	}
+}
+
+void PlayEngine::reset()
+{
+	destroyInstance();
+	getInstance().init();
 }
 
 PlayEngine::PlayEngine()
@@ -25,9 +39,20 @@ PlayEngine::~PlayEngine()
 
 void PlayEngine::update()
 {
-	player->update();
-	cshots->update();
-	enemys->update();
+	switch (state)
+	{
+	case dxshoot::PlayEngine::State::Title:
+		updateTitle();
+		break;
+	case dxshoot::PlayEngine::State::Play:
+		updatePlay();
+		break;
+	case dxshoot::PlayEngine::State::Gameover:
+		updateGameover();
+		break;
+	default:
+		break;
+	}
 }
 
 
@@ -35,7 +60,6 @@ void PlayEngine::draw()
 {
 	enemys->draw();
 	player->draw();
-	cshots->draw();
 }
 
 ImageLoader & PlayEngine::getImages()
@@ -48,19 +72,36 @@ Rectangle PlayEngine::getPlayArea()
 	return Rectangle::fromPoint(0.0f, 0.0f, 640.0f, 480.0f);
 }
 
+void PlayEngine::updateTitle()
+{
+	player->update();
+}
+
+void PlayEngine::updatePlay()
+{
+	player->update();
+	level->update();
+	enemys->update();
+	for (auto& en : enemys->getItems()) {
+		if (static_cast<Enemy&>(*en).canCollision && player->isCollision(*en)) {
+			state = State::Gameover;
+		}
+	}
+}
+
+void PlayEngine::updateGameover()
+{
+}
+
 void PlayEngine::init()
 {
 	imageLoader = std::make_unique<ImageLoader>();
 	player = std::make_unique<PlayerCharacter>();
-	cshots = std::make_unique<CharacterManager>();
 	enemys = std::make_unique<CharacterManager>();
-
-	addEnemy(std::make_unique<Enemy>("chara_test.png", Vector2(400.0f, 300.0f)));
+	level = std::make_unique<Level>();
+	state = State::Play;
 }
 
-void PlayEngine::addShot(std::unique_ptr<Shot> s) {
-	cshots->add(std::move(s));
-}
 
 void PlayEngine::addEnemy(std::unique_ptr<Enemy> e)
 {

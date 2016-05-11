@@ -6,10 +6,11 @@
 namespace dxshoot{
 
 PlayerCharacter::PlayerCharacter()
-	: Character("chara_test.png")
+	: Character()
 {
-	position = Vector2(240.0f, 300.0f);
-	collisionRect = Vector2(8.0f, 16.0f);
+	position = Vector2(256.0f, 256.0f);
+	collisionRect = Vector2(8.0f, 8.0f);
+	color = DxLib::GetColor(255, 255, 255);
 }
 
 
@@ -22,9 +23,6 @@ PlayerCharacter::~PlayerCharacter()
 void PlayerCharacter::update()
 {
 	position += InputManager::getInstance().getDirection() * Speed;
-	if (InputManager::getInstance().getButton(Button::A).push()) {
-		PlayEngine::getInstance().addShot(std::make_unique<Shot>(position, 3.0f, 0.0f));
-	}
 }
 
 

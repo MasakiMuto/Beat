@@ -145,11 +145,11 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayEngine.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="Shot.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,11 +166,11 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="PlayEngine.h" />
     <ClInclude Include="PlayerCharacter.h" />
     <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="Shot.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

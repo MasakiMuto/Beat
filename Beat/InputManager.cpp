@@ -17,7 +17,7 @@ InputManager & InputManager::getInstance()
 
 InputManager::InputManager()
 {
-	buttons = std::vector<ButtonState>{ ButtonState(), ButtonState() };
+	buttons = std::vector<ButtonState>{ ButtonState(), ButtonState(), ButtonState() };
 }
 
 
@@ -40,6 +40,7 @@ void InputManager::update()
 
 	buttons.at(0).update((s & PAD_INPUT_1) != 0);
 	buttons.at(1).update((s & PAD_INPUT_2) != 0);
+	buttons.at(2).update(DxLib::CheckHitKey(KEY_INPUT_ESCAPE) != 0);
 }
 
 

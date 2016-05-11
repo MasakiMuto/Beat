@@ -10,14 +10,15 @@ class Enemy :
 	public Character
 {
 public:
-	Enemy(const char* imageName, Vector2 pos);
+	Enemy(Vector2 pos);
 	~Enemy();
 
 	virtual void update() override;
 	virtual bool canDelete() override;
+	bool canCollision;
 protected:
+	const int MaxCount = 30;
 	int count;
-	int life;
 };
 
 }

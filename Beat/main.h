@@ -5,9 +5,9 @@
 #include <DxLib.h>
 
 namespace dxshoot {
+extern const int Size;
 
-
-	void init();
-	void update();
-	void draw();
+void init();
+void update();
+void draw();
 }

@@ -8,7 +8,7 @@ namespace dxshoot
 {
 
 enum class Button {
-	A, B
+	A, B, Esc
 };
 
 class InputManager
