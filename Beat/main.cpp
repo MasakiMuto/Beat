@@ -8,7 +8,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	DxLib::ChangeWindowMode(TRUE);
 	DxLib::SetGraphMode(dxshoot::Size, dxshoot::Size, 32);
 	DxLib::SetWindowSize(dxshoot::Size, dxshoot::Size);
-	DxLib::SetWindowTextA("dxshoot");
+	DxLib::SetWindowTextA("beat");
 	DxLib::SetBackgroundColor(0, 0, 0);
 	DxLib::SetUsePremulAlphaConvertLoad(TRUE);
 	if (DxLib::DxLib_Init() == -1)
@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 }
 
 namespace dxshoot {
-const int Size = 512;
+const int Size = 256;
 
 void init()
 {

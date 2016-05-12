@@ -237,6 +237,7 @@ _Pvt_Extensions
 Debug/
 *.db
 *.opendb
-DxShoot/Debug/
-DxShoot/Log.txt
+Debug/
+Log.txt
 *.user
+

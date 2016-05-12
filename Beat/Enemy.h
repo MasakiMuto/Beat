@@ -10,7 +10,7 @@ class Enemy :
 	public Character
 {
 public:
-	Enemy(Vector2 pos);
+	Enemy(float pos, bool direction);
 	~Enemy();
 
 	virtual void update() override;
@@ -19,6 +19,7 @@ public:
 protected:
 	const int MaxCount = 30;
 	int count;
+	const float Width = 4.0f;
 };
 
 }

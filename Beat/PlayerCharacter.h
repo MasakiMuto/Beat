@@ -11,7 +11,7 @@ public:
 	~PlayerCharacter();
 	virtual void update() override;
 private:
-	const float Speed = 8.0f;
+	const float Speed = 5.0f;
 };
 
 
