@@ -58,6 +58,7 @@ void PlayEngine::update()
 
 void PlayEngine::draw()
 {
+	DxLib::DrawFormatString(0, 0, DxLib::GetColor(64, 64, 64), "%d", count);
 	enemys->draw();
 	player->draw();
 }
@@ -87,6 +88,7 @@ void PlayEngine::updatePlay()
 			state = State::Gameover;
 		}
 	}
+	count++;
 }
 
 void PlayEngine::updateGameover()

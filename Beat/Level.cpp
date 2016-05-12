@@ -18,12 +18,25 @@ Level::~Level()
 void Level::update()
 {
 	count++;
-	if (count % 60 == 0) {
+	beatCount++;
+	if (beatCount >= getBeat()) {
+		beatCount -= getBeat();
+		int n = getNum();
 		direction = !direction;
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < n; i++) {
 			PlayEngine::getInstance().addEnemy(std::make_unique<Enemy>((*dist)(*mt), direction));
 		}
 	}
+}
+
+int Level::getNum()
+{
+	return 3 + count / 300 + (count % 600 / 60);
+}
+
+int Level::getBeat()
+{
+	return 60;
 }
 
 }

@@ -40,7 +40,8 @@ private:
 
 	std::unique_ptr<CharacterManager> enemys;
 	std::unique_ptr<Level> level;
-
+	
+	int count;
 
 	void updateTitle();
 	void updatePlay();

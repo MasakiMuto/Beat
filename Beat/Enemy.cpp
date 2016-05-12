@@ -32,8 +32,9 @@ void Enemy::update()
 {
 	count--;
 	double r = std::sqrt(static_cast<double>(MaxCount - count) / MaxCount);
-	const double Base = 0.3;
-	color = DxLib::GetColor(static_cast<int>(255 * (r * (1 - Base) + Base)), 0, 0);
+	const double Base = 0.5;
+	int other = static_cast<int>(128 * (r));
+	color = DxLib::GetColor(static_cast<int>(255 * (r * (1 - Base) + Base)), other, other);
 	if (count <= 1) {
 		canCollision = true;
 	}
